@@ -2,7 +2,7 @@
 <rss version="2.0">
     <channel>
         <title>红玉のblog • Posts by &#34;文章&#34; category</title>
-        <link>http://example.com</link>
+        <link>https://zeroruby.github.io</link>
         <description></description>
         <language>en</language>
         <pubDate>Thu, 19 Oct 2023 00:00:00 +0800</pubDate>
@@ -10,9 +10,9 @@
         <category>战斗</category>
         <category>关卡</category>
         <item>
-            <guid isPermalink="true">http://example.com/2023/10/19/%E6%89%93%E5%87%BB%E6%84%9F%E4%BC%98%E5%8C%96%E8%AE%BE%E8%AE%A1/</guid>
+            <guid isPermalink="true">https://zeroruby.github.io/2023/10/19/%E6%89%93%E5%87%BB%E6%84%9F%E4%BC%98%E5%8C%96%E8%AE%BE%E8%AE%A1/</guid>
             <title>打击感和战斗手感优化设计</title>
-            <link>http://example.com/2023/10/19/%E6%89%93%E5%87%BB%E6%84%9F%E4%BC%98%E5%8C%96%E8%AE%BE%E8%AE%A1/</link>
+            <link>https://zeroruby.github.io/2023/10/19/%E6%89%93%E5%87%BB%E6%84%9F%E4%BC%98%E5%8C%96%E8%AE%BE%E8%AE%A1/</link>
             <category>战斗</category>
             <pubDate>Thu, 19 Oct 2023 00:00:00 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;一篇关于如何进行打击感和战斗手感优化的文章&lt;/p&gt;
