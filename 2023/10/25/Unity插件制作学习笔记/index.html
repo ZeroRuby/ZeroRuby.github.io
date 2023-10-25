@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Unity插件制作学习笔记 | 红玉のblog</title>
+    <meta name="author" content="红玉" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/Loading1.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>红玉のBLOG</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;主页</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;档案</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;分类</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;文章</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;标签</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;红玉のBLOG</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">主页</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">档案</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">分类</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">文章</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">标签</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>Unity插件制作学习笔记</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/25
+        </span>
+        
+        <span class="category">
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                学习笔记
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/%E7%A8%8B%E5%BA%8F-unity/" style="color: #03a9f4">程序 unity</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p>记录自己学习 unity 制作插件时的细节和 tips，有任何问题或疑惑请随时通过主页联系方式联系我一起探讨。</p>
+<span id="more"></span>
+<hr>
+<h1><span id="一-自定义-inspector-界面"> 一、自定义 Inspector 界面</span></h1>
+<h2><span id="1-属性相关标识"> 1、属性相关标识</span></h2>
+<p>5 种变量在 inspector 隐藏和显示的方法</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Value</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> int1;</span><br><span class="line"></span><br><span class="line">    [<span class="meta">HideInInspector</span>]<span class="comment">//直接隐藏在inspector</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> int2=<span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">    [<span class="meta">NonSerialized</span>]<span class="comment">//隐藏的同时不会保存被inspector序列化后的值</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> int3=<span class="number">3</span>;<span class="comment">//即更改inspector的值不会影响脚本的初始赋值</span></span><br><span class="line"></span><br><span class="line">    [<span class="meta">SerializeField</span>]<span class="comment">//将私有变量显示在inspector</span></span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">int</span> int4;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> ValueTest valueTest = <span class="keyword">new</span> ValueTest();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">[<span class="meta">Serializable</span>]<span class="comment">//可让自定义的类显示在inspector</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ValueTest</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> int5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最终在 inspector 的表现效果如下：</p>
+<p><img src="/images/Emoji.gif" data-original="/image-20231025225218480.png" alt="image-20231025225218480"></p>
+<h2><span id="2-自定义界面属性"> 2、自定义界面属性</span></h2>
+<p>创建自定义界面需要在 Asset 路径下创建名为 Editor 的文件夹，此命名的文件夹打包时不会被打包（Resources 文件夹同理，在 load 方法加载资源时要注意路径<a target="_blank" rel="noopener" href="https://docs.unity.cn/cn/2019.3/ScriptReference/Resources.Load.html">（Resources-Load - Unity 脚本 API）</a>）</p>
+<p>创建上述 Value 的自定义 inspector：</p>
+<p>第一步：创建继承 Editor 基类的脚本，并将其放在 Editor 文件夹下，并声明是 Value 的界面</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEditor;</span><br><span class="line"></span><br><span class="line">[<span class="meta">CustomEditor(typeof(Value))</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ValueEditor</span> :<span class="title">Editor</span></span><br><span class="line">&#123;</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">public</span> SerializedObject mObj;   <span class="comment">//定义序列化目标对象</span></span><br><span class="line">    <span class="comment">//序列化出来几个属性</span></span><br><span class="line">    <span class="comment">//属性对应的是[CustomEditor(typeof(Value))]中，Value类里面的属性</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> SerializedProperty int1;</span><br><span class="line">    <span class="keyword">public</span> SerializedProperty int2;</span><br><span class="line">    <span class="keyword">public</span> SerializedProperty int3;</span><br><span class="line">    <span class="keyword">public</span> SerializedProperty int4;</span><br><span class="line">    <span class="keyword">public</span> SerializedProperty valueTest;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//选择当前游戏对象</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnEnable</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//初始化</span></span><br><span class="line">        <span class="keyword">this</span>.mObj = <span class="keyword">new</span> SerializedObject(target);</span><br><span class="line">        <span class="comment">//通过字符串名字，查找Test1类里面的属性，并进行初始化</span></span><br><span class="line">        <span class="keyword">this</span>.int1 = <span class="keyword">this</span>.mObj.FindProperty(<span class="string">&quot;int1&quot;</span>);</span><br><span class="line">        <span class="keyword">this</span>.int2 = <span class="keyword">this</span>.mObj.FindProperty(<span class="string">&quot;int2&quot;</span>);</span><br><span class="line">        <span class="keyword">this</span>.int3 = <span class="keyword">this</span>.mObj.FindProperty(<span class="string">&quot;int3&quot;</span>);</span><br><span class="line">        <span class="keyword">this</span>.int4 = <span class="keyword">this</span>.mObj.FindProperty(<span class="string">&quot;int4&quot;</span>);</span><br><span class="line">        <span class="keyword">this</span>.valueTest = <span class="keyword">this</span>.mObj.FindProperty(<span class="string">&quot;valueTest&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//绘制</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">OnInspectorGUI</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>.mObj.Update();</span><br><span class="line"></span><br><span class="line">        EditorGUILayout.PropertyField(<span class="keyword">this</span>.int1);</span><br><span class="line">        EditorGUILayout.PropertyField(<span class="keyword">this</span>.int2);</span><br><span class="line">        <span class="comment">//EditorGUILayout.PropertyField(this.int3);</span></span><br><span class="line">        <span class="comment">//因为int3是不被序列化的，所以这里不能写此语句</span></span><br><span class="line">        EditorGUILayout.PropertyField(<span class="keyword">this</span>.int4);</span><br><span class="line">        EditorGUILayout.PropertyField(<span class="keyword">this</span>.valueTest, <span class="literal">true</span>);</span><br><span class="line">        <span class="comment">//true属性意思是设置显示子节点，也就是显示TypeDemo里面的属性</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.mObj.ApplyModifiedProperties();</span><br><span class="line">        <span class="comment">//应用属性修改</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>效果如图</p>
+<p><img src="/images/Emoji.gif" data-original="/image-20231025232755437.png" alt="image-20231025232755437"></p>
+<p>可以看到自定义的 Editor 界面不受类本身的属性表示控制。</p>
+<h2><span id="3-自定义序列化属性字段"> 3、自定义序列化属性字段</span></h2>
+<p>此时，我想要当前属性随着我的枚举值的变化而变化，即我选择一个枚举时，其他属性处于不被 editor 绘制的状态。</p>
+<p>方法：</p>
+<p>第一步，创建并书写对应类的脚本和编辑器脚本，这里分别命名为 EnumEditor 和 Enum。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Enum</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> selectedEnum selectedEnum;</span><br><span class="line">    <span class="keyword">public</span> GameObject 碰撞盒;</span><br><span class="line">    <span class="keyword">public</span> GameObject 特效;</span><br><span class="line">    <span class="keyword">public</span> AnimationClip 动作;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">[<span class="meta">Serializable</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="built_in">enum</span> selectedEnum</span><br><span class="line">&#123; </span><br><span class="line">碰撞盒,</span><br><span class="line">特效,</span><br><span class="line">动作,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>仅有 Enum 时</p>
+<p><img src="/images/Emoji.gif" data-original="/image-20231025234839268.png" alt="image-20231025234839268"></p>
+<p>EnumEditor：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEditor;</span><br><span class="line"></span><br><span class="line">[<span class="meta">CustomEditor(typeof(Enum))</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">EnumEditor</span> : <span class="title">Editor</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> SerializedObject mObj;</span><br><span class="line">    <span class="keyword">public</span> SerializedProperty selectedEnum;</span><br><span class="line">    <span class="keyword">public</span> SerializedProperty 碰撞盒;</span><br><span class="line">    <span class="keyword">public</span> SerializedProperty 特效;</span><br><span class="line">    <span class="keyword">public</span> SerializedProperty 动作;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnEnable</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//初始化</span></span><br><span class="line">        <span class="keyword">this</span>.mObj = <span class="keyword">new</span> SerializedObject(target);</span><br><span class="line">        <span class="keyword">this</span>.selectedEnum = <span class="keyword">this</span>.mObj.FindProperty(<span class="string">&quot;selectedEnum&quot;</span>);</span><br><span class="line">        <span class="keyword">this</span>.碰撞盒 = <span class="keyword">this</span>.mObj.FindProperty(<span class="string">&quot;碰撞盒&quot;</span>);</span><br><span class="line">        <span class="keyword">this</span>.特效 = <span class="keyword">this</span>.mObj.FindProperty(<span class="string">&quot;特效&quot;</span>);</span><br><span class="line">        <span class="keyword">this</span>.动作 = <span class="keyword">this</span>.mObj.FindProperty(<span class="string">&quot;动作&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">OnInspectorGUI</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>.mObj.Update();</span><br><span class="line">        EditorGUILayout.PropertyField(<span class="keyword">this</span>.selectedEnum);</span><br><span class="line">        <span class="comment">//使用switch做条件筛选，this.mEnumDemo.enumValueIndex作为筛选条件，index从0开始，由于我设置枚举类型的第一个属性为None，所以case的值从1开始。</span></span><br><span class="line">        <span class="keyword">switch</span> (<span class="keyword">this</span>.selectedEnum.enumValueIndex)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">                EditorGUILayout.PropertyField(<span class="keyword">this</span>.碰撞盒);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                EditorGUILayout.PropertyField(<span class="keyword">this</span>.特效);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                EditorGUILayout.PropertyField(<span class="keyword">this</span>.动作);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.mObj.ApplyModifiedProperties();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>编写后</p>
+<p><img src="/images/Emoji.gif" data-original="/image-20231025235035035.png" alt="image-20231025235035035"></p>
+<h2><span id="4-自定义操作界面"> 4、自定义操作界面</span></h2>
+<p>当我们需要自定义操作界面时：</p>
+<p>需要用到 EditorGUILayout 方法：<a target="_blank" rel="noopener" href="https://docs.unity.cn/cn/2019.4/ScriptReference/EditorGUILayout.html">EditorGUILayout - Unity 脚本 API</a></p>
+<p>以下是常用的。</p>
+<h3><span id="a-界面的启动和关闭"> a、界面的启动和关闭</span></h3>
+<p>创建一个类，存放在 Assets–&gt;Editor 里面，并继承自 EditorWindow</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEditor;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">WindowsEditor</span> : <span class="title">EditorWindow</span></span><br><span class="line">&#123;</span><br><span class="line">    [<span class="meta">MenuItem(<span class="string">&quot;Menu/EditorWindow&quot;</span>)</span>]</span><br><span class="line">    <span class="comment">//声明窗口路径</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ShowWindow</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//CreateInstance会允许创建多个窗口，推荐使用系统自带的单例模式getwindows</span></span><br><span class="line">        <span class="comment">//使用官方提供的实例化窗口方法调用</span></span><br><span class="line">        WindowsEditor.CreateInstance&lt;WindowsEditor&gt;().Show();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//浮动型的窗口，跟点击Building Setting出现的窗口效果一样</span></span><br><span class="line">        WindowsEditor.CreateInstance&lt;WindowsEditor&gt;().ShowUtility();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//弹出窗口时的效果</span></span><br><span class="line">        WindowsEditor.CreateInstance&lt;WindowsEditor&gt;().ShowPopup();</span><br><span class="line">        <span class="comment">//此方法和下面的OnGUI配合着使用，否则会出现页面关不掉的情况,此时不会出现UI自带的关闭界面</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//使用系统提供的单例模式，在unity面板中打开窗口时，只会出现一个(推荐)</span></span><br><span class="line">        WindowsEditor.GetWindow&lt;WindowsEditor&gt;().Show();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnGUI</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (GUILayout.Button(<span class="string">&quot;关闭&quot;</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">this</span>.Close();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>每个方法效果如下</p>
+<table>
+<thead>
+<tr>
+<th><img src="/images/Emoji.gif" data-original="/image-20231026000101143.png" alt="image-20231026000101143"></th>
+<th><img src="/images/Emoji.gif" data-original="/image-20231026000129453.png" alt="image-20231026000129453"></th>
+<th><img src="/images/Emoji.gif" data-original="/image-20231026000158455.png" alt="image-20231026000158455"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Show</td>
+<td>ShowUtility</td>
+<td>ShowUtility</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="b-界面的事件相关"> b、界面的事件相关</span></h3>
+<p>自定义页面中有时会使用自定义的事件，事件通常如下：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">int</span> index_1 = <span class="number">0</span>;</span><br><span class="line"><span class="comment">//刷新方法，每秒钟100次</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    index_1++;</span><br><span class="line">    Debug.Log(<span class="string">&quot;index_1：&quot;</span> + index_1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="built_in">int</span> index_2 = <span class="number">0</span>;</span><br><span class="line"><span class="comment">//刷新方法，刷新周期比Update小</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnInspectorUpdate</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    index_2++;</span><br><span class="line">    Debug.Log(<span class="string">&quot;index_2：&quot;</span> + index_2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//视图被删除的时候触发</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnDestroy</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;OnDestroy：触发&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//选择一个对象的时候触发</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnSelectionChange</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//获取选择Hierarchy里面游戏物体的时候的名字</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; Selection.gameObjects.Length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(<span class="string">&quot;OnSelectionChange：触发&quot;</span> + Selection.gameObjects[i].name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取选择Project里面的文件的名字</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; Selection.objects.Length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(<span class="string">&quot;OnSelectionChange：触发&quot;</span> + Selection.objects[i].name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获得焦点的时候触发</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnFocus</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;OnFocus：触发&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//失去焦点的时候触发</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnLostFocus</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;OnLostFocus：触发&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Hierarchy更改的时候触发</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnHierarchyChange</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;OnHierarchyChange：触发&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Project更改的时候触发</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnProjectChange</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;OnProjectChange：触发&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="c-文本-颜色字段"> c、文本 / 颜色字段</span></h3>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="built_in">string</span> 文本 = <span class="string">&quot;默认文字&quot;</span>;</span><br><span class="line"><span class="keyword">public</span> Color 颜色 = Color.white;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnGUI</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (GUILayout.Button(<span class="string">&quot;关闭&quot;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>.Close();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//一行文本，单行输入框</span></span><br><span class="line">    <span class="keyword">this</span>.文本 = EditorGUILayout.TextField(<span class="keyword">this</span>.文本);</span><br><span class="line">    <span class="comment">//多行输入框</span></span><br><span class="line">    <span class="keyword">this</span>.文本 = EditorGUILayout.TextArea(<span class="keyword">this</span>.文本);</span><br><span class="line">    <span class="comment">//密码输入框</span></span><br><span class="line">    <span class="keyword">this</span>.文本 = EditorGUILayout.PasswordField(<span class="keyword">this</span>.文本);</span><br><span class="line">    <span class="comment">//颜色选择框</span></span><br><span class="line">    <span class="keyword">this</span>.颜色 = EditorGUILayout.ColorField(<span class="keyword">this</span>.颜色);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><img src="/images/Emoji.gif" data-original="/image-20231026001735821.png" alt="image-20231026001735821"></p>
+<h3><span id="d-标签字段"> d、标签字段</span></h3>
+<p>类似于 [header (“”)] 标识，在 gui 中显示 tag。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">public</span> <span class="built_in">string</span> 文本 = <span class="string">&quot;默认文字&quot;</span>;</span><br><span class="line">   <span class="keyword">public</span> Color 颜色 = Color.white;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnGUI</span>()</span></span><br><span class="line">   &#123;</span><br><span class="line">       <span class="comment">//标签</span></span><br><span class="line">       EditorGUILayout.PrefixLabel(<span class="keyword">this</span>.文本);<span class="comment">//只写这么一行代码，窗口里面不出现任何内容</span></span><br><span class="line">       EditorGUILayout.Space();<span class="comment">//换行</span></span><br><span class="line"></span><br><span class="line">       <span class="comment">//标签（下拉框）</span></span><br><span class="line">       <span class="keyword">this</span>.文本 = EditorGUILayout.TagField(<span class="keyword">this</span>.文本);</span><br><span class="line">       EditorGUILayout.Space();</span><br><span class="line"></span><br><span class="line">       <span class="comment">//标签（非可选择标签提示）</span></span><br><span class="line">       EditorGUILayout.LabelField(<span class="keyword">this</span>.文本);</span><br><span class="line">       EditorGUILayout.Space();</span><br><span class="line"></span><br><span class="line">       <span class="comment">//标签（可选择标签提示）</span></span><br><span class="line">       EditorGUILayout.SelectableLabel(<span class="keyword">this</span>.文本);</span><br><span class="line">       EditorGUILayout.Space();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><img src="/images/Emoji.gif" data-original="/image-20231026002300584.png" alt="image-20231026002300584"></p>
+<h3><span id="e-输入字段"> e、输入字段</span></h3>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">string</span> 文本 = <span class="string">&quot;默认文字&quot;</span>;</span><br><span class="line"> <span class="keyword">public</span> <span class="built_in">int</span> 数字;</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnGUI</span>()</span></span><br><span class="line"> &#123;</span><br><span class="line">     EditorGUILayout.LabelField(<span class="string">&quot;输入整形数字&quot;</span>);</span><br><span class="line">     <span class="keyword">this</span>.数字 = EditorGUILayout.IntField(<span class="keyword">this</span>.数字);</span><br><span class="line">     EditorGUILayout.LabelField(<span class="string">&quot;输入字符&quot;</span>);</span><br><span class="line">     <span class="keyword">this</span>.文本 = EditorGUILayout.TextField(<span class="keyword">this</span>.文本);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><img src="/images/Emoji.gif" data-original="/image-20231026002601592.png" alt="image-20231026002601592"></p>
+<h3><span id="f-滑动条"> f、滑动条</span></h3>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">int</span> 数字;</span><br><span class="line"><span class="keyword">public</span> <span class="built_in">float</span> 浮点数;</span><br><span class="line"><span class="keyword">public</span> <span class="built_in">float</span> 浮点最大值;</span><br><span class="line"><span class="keyword">public</span> <span class="built_in">float</span> 浮点最小值;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnGUI</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//滑动条  参数1：默认值，参数2：最小值，参数3：最大值</span></span><br><span class="line">    <span class="keyword">this</span>.浮点数 = EditorGUILayout.Slider(<span class="keyword">this</span>.浮点数, <span class="number">0</span>, <span class="number">100</span>);<span class="comment">//取值区间有小数</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.数字 = EditorGUILayout.IntSlider(<span class="keyword">this</span>.数字, <span class="number">0</span>, <span class="number">100</span>);<span class="comment">//取值区间为整数</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//最小值到最大值的取值范围，为0-100</span></span><br><span class="line">    EditorGUILayout.MinMaxSlider(<span class="keyword">ref</span> 浮点最小值, <span class="keyword">ref</span> 浮点最大值, <span class="number">0</span>, <span class="number">100</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><img src="/images/Emoji.gif" data-original="/image-20231026003117435.png" alt="image-20231026003117435"></p>
+<h3><span id="g-vector-输入字段"> g、Vector 输入字段</span></h3>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Vector3 mPos3;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnGUI</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">this</span>.mPos3 = EditorGUILayout.Vector3Field(<span class="string">&quot;三维坐标&quot;</span>, <span class="keyword">this</span>.mPos3);</span><br><span class="line">    EditorGUILayout.Space();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><img src="/images/Emoji.gif" data-original="/image-20231026003443557.png" alt="image-20231026003443557"></p>
+<h3><span id="h-选择"> h、选择</span></h3>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">int</span> index;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnGUI</span>()</span></span><br><span class="line">    &#123;        </span><br><span class="line">    	<span class="built_in">string</span>[] strs = &#123; <span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>, <span class="string">&quot;d&quot;</span> ,<span class="string">&quot;e&quot;</span>&#125;;</span><br><span class="line">        <span class="built_in">int</span>[] ints = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> &#125;;</span><br><span class="line">        <span class="keyword">this</span>.index = EditorGUILayout.Popup(<span class="keyword">this</span>.index, strs);</span><br><span class="line">        <span class="keyword">this</span>.index = EditorGUILayout.IntPopup(<span class="keyword">this</span>.index, strs,ints);</span><br><span class="line">        EditorGUILayout.Space();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/Emoji.gif" data-original="/image-20231026004155844.png" alt="image-20231026004155844"></p>
+<p>i、对象选择</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">public</span> <span class="built_in">string</span> mTag;</span><br><span class="line"> <span class="keyword">public</span> <span class="built_in">int</span> mLayer;</span><br><span class="line"> <span class="keyword">public</span> Object mObject;</span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnGUI</span>()</span></span><br><span class="line"> &#123;</span><br><span class="line">     <span class="comment">//标签，下面两种写法，哪个都可以</span></span><br><span class="line">     <span class="comment">//this.mTag = EditorGUILayout.TagField(this.mTag);</span></span><br><span class="line">     <span class="keyword">this</span>.mTag = EditorGUILayout.TagField(<span class="string">&quot;Tag&quot;</span>);</span><br><span class="line">     EditorGUILayout.Space();</span><br><span class="line">     <span class="comment">//层</span></span><br><span class="line">      <span class="keyword">this</span>.mLayer = EditorGUILayout.LayerField(<span class="keyword">this</span>.mLayer);</span><br><span class="line">      EditorGUILayout.Space();</span><br><span class="line">      <span class="comment">//对象选择，如果想要存放所有的元素，那么参数就写为Object： typeof(Object)</span></span><br><span class="line">     <span class="keyword">this</span>.mObject = EditorGUILayout.ObjectField(<span class="string">&quot;对象选择器&quot;</span>, <span class="keyword">this</span>.mObject, <span class="keyword">typeof</span>(Camera), <span class="literal">true</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>从其他博客中学到的，原作者：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/yzx885059439/p/14497026.html">Unity3D 插件开发教程 - 挽风入我怀 - 博客园 (cnblogs.com)</a></p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 红玉のblog
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;红玉
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</html>
