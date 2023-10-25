@@ -4,9 +4,10 @@
     <title>红玉のblog • Posts by &#34;学习笔记&#34; category</title>
     <link href="https://zeroruby.github.io" />
     <updated>2023-10-24T16:00:00.000Z</updated>
-    <category term="程序 unity" />
-    <category term="关卡" />
+    <category term="程序" />
+    <category term="unity" />
     <category term="战斗" />
+    <category term="关卡" />
     <entry>
         <id>https://zeroruby.github.io/2023/10/25/Unity%E6%8F%92%E4%BB%B6%E5%88%B6%E4%BD%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
         <title>Unity插件制作学习笔记</title>
@@ -119,7 +120,8 @@
 &lt;hr&gt;
 &lt;p&gt;从其他博客中学到的，原作者：&lt;a href=&#34;https://www.cnblogs.com/yzx885059439/p/14497026.html&#34;&gt;Unity3D 插件开发教程 - 挽风入我怀 - 博客园 (cnblogs.com)&lt;/a&gt;&lt;/p&gt;
 </content>
-        <category term="程序 unity" />
+        <category term="程序" />
+        <category term="unity" />
         <updated>2023-10-24T16:00:00.000Z</updated>
     </entry>
 </feed>
