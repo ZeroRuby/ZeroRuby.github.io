@@ -4,10 +4,10 @@
     <title>红玉のblog • Posts by &#34;文章&#34; category</title>
     <link href="https://zeroruby.github.io" />
     <updated>2023-10-18T16:00:00.000Z</updated>
-    <category term="战斗" />
-    <category term="关卡" />
     <category term="程序" />
     <category term="unity" />
+    <category term="战斗" />
+    <category term="关卡" />
     <entry>
         <id>https://zeroruby.github.io/2023/10/19/%E6%89%93%E5%87%BB%E6%84%9F%E4%BC%98%E5%8C%96%E8%AE%BE%E8%AE%A1/</id>
         <title>打击感和战斗手感优化设计</title>
@@ -77,7 +77,7 @@
 &lt;li&gt;动特音一体化&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1&gt;&lt;span id=&#34;二-打击感和手感的影响因素&#34;&gt; 二、打击感和手感的影响因素&lt;/span&gt;&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;%E5%BD%B1%E5%93%8D%E5%9B%A0%E7%B4%A0.png&#34; alt=&#34;影响因素&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;%E5%BD%B1%E5%93%8D%E5%9B%A0%E7%B4%A0.png&#34; alt=&#34;影响因素&#34;&gt;&lt;/p&gt;
 &lt;p&gt;通过人的感知对打击感区分了四个方向的影响因素&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;视觉：
@@ -120,7 +120,7 @@
 &lt;p&gt;对于任何一个动作设计而言，其基本都需要符合发力原理。&lt;/p&gt;
 &lt;p&gt;以人形骨骼为例，通常以腿→腰胯→肩手头的发力顺序来保证动作看起来顺畅。&lt;/p&gt;
 &lt;p&gt;参考武打港片中（如：叶问系列）的打戏镜头，可以看出发力要符合人体结构才能看起来真实&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;%E5%8F%B6%E9%97%AE%E5%86%B2%E6%8B%B3.gif&#34; alt=&#34;叶问冲拳&#34; title=&#34;叶问 日字冲拳&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;%E5%8F%B6%E9%97%AE%E5%86%B2%E6%8B%B3.gif&#34; alt=&#34;叶问冲拳&#34; title=&#34;叶问 日字冲拳&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;符合攻击意图&lt;/p&gt;
@@ -129,16 +129,16 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;%E6%99%AE%E9%80%9A%E5%8A%A8%E4%BD%9C.gif&#34; alt=&#34;普通动作&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;%E6%99%AE%E9%80%9A%E5%8A%A8%E4%BD%9C.gif&#34; alt=&#34;普通动作&#34;&gt;&lt;/p&gt;
 &lt;p&gt;​					这是一个没有任何蓄力的动作设计 &lt;strong&gt;↑&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;%E8%93%84%E5%8A%9B%E5%8A%A8%E4%BD%9C.gif&#34; alt=&#34;蓄力动作&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;%E8%93%84%E5%8A%9B%E5%8A%A8%E4%BD%9C.gif&#34; alt=&#34;蓄力动作&#34;&gt;&lt;/p&gt;
 &lt;p&gt;​					这是添加了蓄力动作的设计 &lt;strong&gt;↑&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;​					由此可见一个有节奏的动作设计需要在每帧内的速度各不相同，如果动画同学在进行动作设计的同时没有注意这					点，很有可能导致最后动作设计缺少打击感。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;需要有后摇缓冲&lt;/p&gt;
 &lt;p&gt;对于一个攻击动作而言，无论其是否能被取消（&lt;a href=&#34;#动作取消&#34;&gt;动作取消&lt;/a&gt;），都需要设计其攻击判定结束后的收招动作，是确保动作的连贯性和演出性质的重要因素。同时搭配动作取消，能成为影响操作手感的重要因素。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;%E5%8E%9F%E7%A5%9E%E6%94%B6%E5%89%91.gif&#34; alt=&#34;原神收剑&#34; title=&#34;原神迪卢克收剑动作&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;%E5%8E%9F%E7%A5%9E%E6%94%B6%E5%89%91.gif&#34; alt=&#34;原神收剑&#34; title=&#34;原神迪卢克收剑动作&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -152,9 +152,9 @@
 &lt;li&gt;
 &lt;p&gt;一帧切原则&lt;/p&gt;
 &lt;p&gt;通常动作游戏的打击感强调爽快、精准和迅速的反馈，所以当角色受到攻击后，需要参考一帧切原则进行受击动画的播放。即：角色从当前动作过度到受击动作的播放只能使用一帧的过度时间&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;%E4%B8%80%E5%B8%A7%E5%88%87%E5%8E%9F%E5%88%99.gif&#34; alt=&#34;一帧切原则&#34; title=&#34;一帧切原则&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;%E4%B8%80%E5%B8%A7%E5%88%87%E5%8E%9F%E5%88%99.gif&#34; alt=&#34;一帧切原则&#34; title=&#34;一帧切原则&#34;&gt;&lt;/p&gt;
 &lt;p&gt;而在以强调真实感的拟真游戏当中，动作设计以真实感为核心，所以此时无需参考一帧切原则，可以使用较长的过渡动画。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;%E5%88%87%E6%9E%AA%E5%A1%94%E7%A7%91%E5%A4%AB.gif&#34; alt=&#34;切枪塔科夫&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;%E5%88%87%E6%9E%AA%E5%A1%94%E7%A7%91%E5%A4%AB.gif&#34; alt=&#34;切枪塔科夫&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;分档合理&lt;/p&gt;
@@ -175,10 +175,10 @@
 &lt;li&gt;
 &lt;p&gt;动画融合&lt;/p&gt;
 &lt;p&gt;以 unity 为例用动画层（layers）和动画遮罩（avatar mask）实现动画融合，可以提高受击动作流畅性&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;image-20231019084938968.png&#34; alt=&#34;image-20231019084938968&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;image-20231019084938968.png&#34; alt=&#34;image-20231019084938968&#34;&gt;&lt;/p&gt;
 &lt;p&gt;通过在 unity 中新建新的动画 layer，在播放受击动画依照动画层级和权重进行动作播放&lt;/p&gt;
 &lt;p&gt;例如：当角色的上半身碰撞盒受击时，Body 层的动作播放受击动作权重为 100%，而下半身通过播放权重 20%，通过 IK 实现动画的连贯性，避免出现上半身受击，而下半身动作很大的错误案例&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;%E4%B8%80%E5%B8%A7%E5%88%87%E5%8E%9F%E5%88%99.gif&#34; alt=&#34;一帧切原则&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;%E4%B8%80%E5%B8%A7%E5%88%87%E5%8E%9F%E5%88%99.gif&#34; alt=&#34;一帧切原则&#34;&gt;&lt;/p&gt;
 &lt;p&gt;以同样的例子可以看出，在街霸 6 中的实现就是如此，当角色上半身受击时、下半身动作幅度并不大&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -188,7 +188,7 @@
 &lt;li&gt;
 &lt;p&gt;受身动作&lt;/p&gt;
 &lt;p&gt;当角色受到大幅度受击动作后，通常应该有一个受身动作，其节奏随游戏不同略有不同，在格斗游戏中，角色受击后的起身应该保持尽可能相同的帧数，确保玩家在面对不同角色的时候的战斗节奏不会发生太大的变化。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;%E5%AE%88%E8%BA%AB%E5%8A%A8%E4%BD%9C.gif&#34; alt=&#34;守身动作&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;%E5%AE%88%E8%BA%AB%E5%8A%A8%E4%BD%9C.gif&#34; alt=&#34;守身动作&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -201,9 +201,9 @@
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;image-20231019093225842.png&#34; alt=&#34;image-20231019093225842&#34; style=&#34;zoom:33%;&#34;&gt;&lt;/th&gt;
-&lt;th&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;image-20231019093247344.png&#34; alt=&#34;image-20231019093247344&#34; style=&#34;zoom:33%;&#34;&gt;&lt;/th&gt;
-&lt;th&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;image-20231019093621101.png&#34; alt=&#34;image-20231019093621101&#34; style=&#34;zoom:33%;&#34;&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;image-20231019093225842.png&#34; alt=&#34;image-20231019093225842&#34; style=&#34;zoom:33%;&#34;&gt;&lt;/th&gt;
+&lt;th&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;image-20231019093247344.png&#34; alt=&#34;image-20231019093247344&#34; style=&#34;zoom:33%;&#34;&gt;&lt;/th&gt;
+&lt;th&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;image-20231019093621101.png&#34; alt=&#34;image-20231019093621101&#34; style=&#34;zoom:33%;&#34;&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;/table&gt;
@@ -217,7 +217,7 @@
 &lt;li&gt;
 &lt;p&gt;攻击特效&lt;/p&gt;
 &lt;p&gt;攻击特效需要匹配角色战斗性能，即特效需要符合角色动作，避免出现动作不匹配的问题&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;image-20231019094253154.png&#34; alt=&#34;image-20231019094253154&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;image-20231019094253154.png&#34; alt=&#34;image-20231019094253154&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;受击特效&lt;/p&gt;
@@ -228,8 +228,8 @@
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;%E8%A1%8C%E7%A7%8B.gif&#34; alt=&#34;行秋&#34;&gt;&lt;/th&gt;
-&lt;th&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;%E5%8F%97%E5%87%BB%E7%89%B9%E6%95%88%E8%A1%8C%E7%A7%8B.png&#34; alt=&#34;受击特效行秋&#34;&gt;&lt;/th&gt;
+&lt;th&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;%E8%A1%8C%E7%A7%8B.gif&#34; alt=&#34;行秋&#34;&gt;&lt;/th&gt;
+&lt;th&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;%E5%8F%97%E5%87%BB%E7%89%B9%E6%95%88%E8%A1%8C%E7%A7%8B.png&#34; alt=&#34;受击特效行秋&#34;&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;/table&gt;
@@ -238,7 +238,7 @@
 &lt;li&gt;
 &lt;p&gt;技能专用受击特效&lt;/p&gt;
 &lt;p&gt;有时为了体现技能本身的特性，需要制作技能专用受击特效，可以弥补此类技能本身动作表现较弱的缺点&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;babara.gif&#34; alt=&#34;babara&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;babara.gif&#34; alt=&#34;babara&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;物体受击特效&lt;/p&gt;
@@ -247,11 +247,11 @@
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;护盾受击&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;%E6%8A%A4%E7%9B%BE%E5%8F%97%E5%87%BB.gif&#34; alt=&#34;护盾受击&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;%E6%8A%A4%E7%9B%BE%E5%8F%97%E5%87%BB.gif&#34; alt=&#34;护盾受击&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;场景受击&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;%E5%9C%BA%E6%99%AF%E5%8F%97%E5%87%BB.gif&#34; alt=&#34;场景受击&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;%E5%9C%BA%E6%99%AF%E5%8F%97%E5%87%BB.gif&#34; alt=&#34;场景受击&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
@@ -268,9 +268,9 @@
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;image-20231019095930979.png&#34; alt=&#34;image-20231019095930979&#34;&gt;&lt;/th&gt;
-&lt;th&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;image-20231019095947453.png&#34; alt=&#34;image-20231019095947453&#34;&gt;&lt;/th&gt;
-&lt;th&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;image-20231019100003310.png&#34; alt=&#34;image-20231019100003310&#34;&gt;&lt;/th&gt;
+&lt;th&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;image-20231019095930979.png&#34; alt=&#34;image-20231019095930979&#34;&gt;&lt;/th&gt;
+&lt;th&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;image-20231019095947453.png&#34; alt=&#34;image-20231019095947453&#34;&gt;&lt;/th&gt;
+&lt;th&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;image-20231019100003310.png&#34; alt=&#34;image-20231019100003310&#34;&gt;&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;/table&gt;
@@ -285,33 +285,33 @@
 &lt;li&gt;
 &lt;p&gt;伤害显示&lt;/p&gt;
 &lt;p&gt;通过伤害显示的方式体现是否命中是一种简单的处理方式。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;apex.gif&#34; alt=&#34;apex&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;apex.gif&#34; alt=&#34;apex&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;血条震动&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;%E8%A1%80%E6%9D%A1%E9%9C%87%E5%8A%A8.gif&#34; alt=&#34;血条震动&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;%E8%A1%80%E6%9D%A1%E9%9C%87%E5%8A%A8.gif&#34; alt=&#34;血条震动&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;屏幕震动&lt;/p&gt;
 &lt;p&gt;屏幕震动同样是一把双刃剑，仅仅适合用在蓄力、重武器的攻击前摇以及命中等情况下，适合搭配镜头运动等其他因素一起食用。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;%E9%9C%87%E5%B1%8F%E5%B9%95.gif&#34; alt=&#34;震屏幕&#34; title=&#34;图片来源于网络&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;%E9%9C%87%E5%B1%8F%E5%B9%95.gif&#34; alt=&#34;震屏幕&#34; title=&#34;图片来源于网络&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;风格化处理&lt;/p&gt;
 &lt;p&gt;风格化后处理是一种能快速表现攻击和受击的方式，但需要注意避免后处理过多导致遮挡主要画面。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;%E9%A3%8E%E6%A0%BC%E5%8C%96%E5%A4%84%E7%90%86.gif&#34; alt=&#34;风格化处理&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;%E9%A3%8E%E6%A0%BC%E5%8C%96%E5%A4%84%E7%90%86.gif&#34; alt=&#34;风格化处理&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;特写镜头&lt;/p&gt;
 &lt;p&gt;特写镜头是一种影视化的处理方式，能带来较好的表现&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;%E9%95%9C%E5%A4%B4.gif&#34; alt=&#34;镜头&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;%E9%95%9C%E5%A4%B4.gif&#34; alt=&#34;镜头&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2&gt;&lt;span id=&#34;2-听觉因素&#34;&gt; 2、听觉因素&lt;/span&gt;&lt;/h2&gt;
 &lt;h3&gt;&lt;span id=&#34;1音效&#34;&gt; （1）音效&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;音效设计总体上可以确认是以下流程：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;%E9%9F%B3%E6%95%88%E8%AE%BE%E8%AE%A1.png&#34; alt=&#34;音效设计&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;%E9%9F%B3%E6%95%88%E8%AE%BE%E8%AE%A1.png&#34; alt=&#34;音效设计&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;近战受击音效&lt;/p&gt;
@@ -361,7 +361,7 @@
 &lt;li&gt;
 &lt;p&gt;碰撞盒&lt;/p&gt;
 &lt;p&gt;对于任何一款拥有战斗元素的游戏来说，攻击的命中判定都是不可或缺的因素&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;%E7%A2%B0%E6%92%9E%E5%92%8C.png&#34; alt=&#34;碰撞和&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;%E7%A2%B0%E6%92%9E%E5%92%8C.png&#34; alt=&#34;碰撞和&#34;&gt;&lt;/p&gt;
 &lt;p&gt;通常碰撞盒可以分为以下几类：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;矩形（通常用于 2D 游戏）&lt;/li&gt;
@@ -375,18 +375,18 @@
 &lt;p&gt;碰撞判定&lt;/p&gt;
 &lt;p&gt;主要是针对碰撞盒在攻击过程中产生的连续碰撞问题，因为在引擎中，碰撞是连续存在的，在攻击命中后，对于是否需要连续进行命中判定，就需要对技能进行提前设计。&lt;/p&gt;
 &lt;p&gt;在技能编辑器中需要设计此功能，即在攻击招式的判定帧内生效次数。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;d5b82012-0436-452c-a88e-4b150cb08059.png&#34; alt=&#34;d5b82012-0436-452c-a88e-4b150cb08059&#34; title=&#34;图片来源于网络&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;d5b82012-0436-452c-a88e-4b150cb08059.png&#34; alt=&#34;d5b82012-0436-452c-a88e-4b150cb08059&#34; title=&#34;图片来源于网络&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;位置判定&lt;/p&gt;
 &lt;p&gt;通常受击位置的判定需要考虑攻击碰撞盒同时命中多个受击碰撞盒的问题。此时需要设计正确的碰撞规则，才能保证受击方的动作和特效播放正确。&lt;/p&gt;
 &lt;p&gt;可以使用向量判定方案：即记录从攻击碰撞盒到每个受击碰撞盒中心位置的向量，记为判定向量 DisToBox。同时记录攻击方向向量 disAttack，则取两者向量差值最小时的碰撞盒为实际受击位置。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;image-20231019103815644.png&#34; alt=&#34;image-20231019103815644&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;image-20231019103815644.png&#34; alt=&#34;image-20231019103815644&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;dic id=&#34;韧性机制&#34;&gt;动作判定&lt;/dic&gt;&lt;/p&gt;
 &lt;p&gt;通常在 ARPG/ACT 游戏中会有一套韧性判定机制，当韧性小于 0 时才会播放重受击动画。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;image-20231019104122855.png&#34; alt=&#34;image-20231019104122855&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;image-20231019104122855.png&#34; alt=&#34;image-20231019104122855&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;&lt;span id=&#34;2动作取消&#34;&gt; &lt;dic id=&#34;动作取消&#34;&gt;（2）动作取消&lt;/dic&gt;&lt;/span&gt;&lt;/h3&gt;
@@ -396,11 +396,11 @@
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Moba 中一般可以在攻击的任何时候取消&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;35169915-3d23-436d-b3d8-8895e6043e22.gif&#34; alt=&#34;35169915-3d23-436d-b3d8-8895e6043e22&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;35169915-3d23-436d-b3d8-8895e6043e22.gif&#34; alt=&#34;35169915-3d23-436d-b3d8-8895e6043e22&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;RPG 来说只能取消部分的后摇收招 动作&lt;/p&gt;
-&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;优菈.gif&#34; alt=&#34;优菈&#34; style=&#34;zoom: 25%;&#34;&gt;
+&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;优菈.gif&#34; alt=&#34;优菈&#34; style=&#34;zoom: 25%;&#34;&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;FTG 中需要操作的指令覆盖或者消耗资源来强制取消&lt;/p&gt;
@@ -411,7 +411,7 @@
 &lt;p&gt;触觉因素是一个和硬件关联性很大的因素，通常在主机游戏中体现较为明显，也更容易做适配。&lt;/p&gt;
 &lt;h3&gt;&lt;span id=&#34;1控制器震动&#34;&gt; （1）控制器震动&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;通常来说在命中时给控制器一个震动指令，能带给玩家更直观的打击体验&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;FF16.gif&#34; alt=&#34;FF16&#34; title=&#34;FF16泰坦boss战&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;FF16.gif&#34; alt=&#34;FF16&#34; title=&#34;FF16泰坦boss战&#34;&gt;&lt;/p&gt;
 &lt;h3&gt;&lt;span id=&#34;2力反馈扳机&#34;&gt; （2）力反馈扳机&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;在 dualsecse 控制器中新增的力反馈扳机搭配 ps5 平台的专门主机优化，在一系列射击游戏中能获得更优秀的感官体验。&lt;/p&gt;
 &lt;hr&gt;

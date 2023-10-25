@@ -183,7 +183,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/unity/" style="color: #ff7d73">unity</a>
+                <a href="/tags/unity/" style="color: #03a9f4">unity</a>
             </span>
             
         </span>
@@ -221,38 +221,39 @@
 <h1><span id="一-自定义-inspector-界面"> 一、自定义 Inspector 界面</span></h1>
 <h2><span id="1-属性相关标识"> 1、属性相关标识</span></h2>
 <p>5 种变量在 inspector 隐藏和显示的方法</p>
-<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">using System;
+<pre><code class="language-c#">using System;
 
 public class Value : MonoBehaviour
 &#123;
     
     public int int1;  
 
-    [HideInInspector]&#x2F;&#x2F;直接隐藏在inspector  
-    public int int2&#x3D;3;  
+    [HideInInspector]//直接隐藏在inspector  
+    public int int2=3;  
 
-    [NonSerialized]&#x2F;&#x2F;隐藏的同时不会保存被inspector序列化后的值   
-    public int int3&#x3D;3;&#x2F;&#x2F;即更改inspector的值不会影响脚本的初始赋值  
+    [NonSerialized]//隐藏的同时不会保存被inspector序列化后的值   
+    public int int3=3;//即更改inspector的值不会影响脚本的初始赋值  
 
-    [SerializeField]&#x2F;&#x2F;将私有变量显示在inspector  
+    [SerializeField]//将私有变量显示在inspector  
     private int int4;  
 
-    public ValueTest valueTest &#x3D; new ValueTest();  
+    public ValueTest valueTest = new ValueTest();  
 
 &#125;
 
-[Serializable]&#x2F;&#x2F;可让自定义的类显示在inspector  
+[Serializable]//可让自定义的类显示在inspector  
 public class ValueTest   
 &#123;
     public int int5;  
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;
+</code></pre>
 <p>最终在 inspector 的表现效果如下：</p>
-<p><img src="/images/Emoji.gif" data-original="image-20231025225218480.png" alt="image-20231025225218480"></p>
+<p><img src="/images/Loading1.gif" data-original="image-20231025225218480.png" alt="image-20231025225218480"></p>
 <h2><span id="2-自定义界面属性"> 2、自定义界面属性</span></h2>
 <p>创建自定义界面需要在 Asset 路径下创建名为 Editor 的文件夹，此命名的文件夹打包时不会被打包（Resources 文件夹同理，在 load 方法加载资源时要注意路径<a target="_blank" rel="noopener" href="https://docs.unity.cn/cn/2019.3/ScriptReference/Resources.Load.html">（Resources-Load - Unity 脚本 API）</a>）</p>
 <p>创建上述 Value 的自定义 inspector：</p>
 <p>第一步：创建继承 Editor 基类的脚本，并将其放在 Editor 文件夹下，并声明是 Value 的界面</p>
-<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">using System.Collections;
+<pre><code class="language-c#">using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -261,9 +262,9 @@ using UnityEditor;
 public class ValueEditor :Editor
 &#123;
   
-    public SerializedObject mObj;   &#x2F;&#x2F;定义序列化目标对象
-    &#x2F;&#x2F;序列化出来几个属性
-    &#x2F;&#x2F;属性对应的是[CustomEditor(typeof(Value))]中，Value类里面的属性
+    public SerializedObject mObj;   //定义序列化目标对象
+    //序列化出来几个属性
+    //属性对应的是[CustomEditor(typeof(Value))]中，Value类里面的属性
 
     public SerializedProperty int1;
     public SerializedProperty int2;
@@ -271,45 +272,46 @@ public class ValueEditor :Editor
     public SerializedProperty int4;
     public SerializedProperty valueTest;
 
-    &#x2F;&#x2F;选择当前游戏对象
+    //选择当前游戏对象
     private void OnEnable()
     &#123;
-        &#x2F;&#x2F;初始化
-        this.mObj &#x3D; new SerializedObject(target);
-        &#x2F;&#x2F;通过字符串名字，查找Test1类里面的属性，并进行初始化
-        this.int1 &#x3D; this.mObj.FindProperty(&quot;int1&quot;);
-        this.int2 &#x3D; this.mObj.FindProperty(&quot;int2&quot;);
-        this.int3 &#x3D; this.mObj.FindProperty(&quot;int3&quot;);
-        this.int4 &#x3D; this.mObj.FindProperty(&quot;int4&quot;);
-        this.valueTest &#x3D; this.mObj.FindProperty(&quot;valueTest&quot;);
+        //初始化
+        this.mObj = new SerializedObject(target);
+        //通过字符串名字，查找Test1类里面的属性，并进行初始化
+        this.int1 = this.mObj.FindProperty(&quot;int1&quot;);
+        this.int2 = this.mObj.FindProperty(&quot;int2&quot;);
+        this.int3 = this.mObj.FindProperty(&quot;int3&quot;);
+        this.int4 = this.mObj.FindProperty(&quot;int4&quot;);
+        this.valueTest = this.mObj.FindProperty(&quot;valueTest&quot;);
     &#125;
 
-    &#x2F;&#x2F;绘制
+    //绘制
     public override void OnInspectorGUI()
     &#123;
         this.mObj.Update();
 
         EditorGUILayout.PropertyField(this.int1);
         EditorGUILayout.PropertyField(this.int2);
-        &#x2F;&#x2F;EditorGUILayout.PropertyField(this.int3);
-        &#x2F;&#x2F;因为int3是不被序列化的，所以这里不能写此语句
+        //EditorGUILayout.PropertyField(this.int3);
+        //因为int3是不被序列化的，所以这里不能写此语句
         EditorGUILayout.PropertyField(this.int4);
         EditorGUILayout.PropertyField(this.valueTest, true);
-        &#x2F;&#x2F;true属性意思是设置显示子节点，也就是显示TypeDemo里面的属性
+        //true属性意思是设置显示子节点，也就是显示TypeDemo里面的属性
 
         this.mObj.ApplyModifiedProperties();
-        &#x2F;&#x2F;应用属性修改
+        //应用属性修改
     &#125;
 &#125;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</code></pre>
 <p>效果如图</p>
-<p><img src="/images/Emoji.gif" data-original="image-20231025232755437.png" alt="image-20231025232755437"></p>
+<p><img src="/images/Loading1.gif" data-original="image-20231025232755437.png" alt="image-20231025232755437"></p>
 <p>可以看到自定义的 Editor 界面不受类本身的属性表示控制。</p>
 <h2><span id="3-自定义序列化属性字段"> 3、自定义序列化属性字段</span></h2>
 <p>此时，我想要当前属性随着我的枚举值的变化而变化，即我选择一个枚举时，其他属性处于不被 editor 绘制的状态。</p>
 <p>方法：</p>
 <p>第一步，创建并书写对应类的脚本和编辑器脚本，这里分别命名为 EnumEditor 和 Enum。</p>
-<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">using System;
+<pre><code class="language-c#">using System;
 
 public class Enum : MonoBehaviour
 &#123;
@@ -325,11 +327,12 @@ public enum selectedEnum
 碰撞盒,
 特效,
 动作,
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;
+</code></pre>
 <p>仅有 Enum 时</p>
-<p><img src="/images/Emoji.gif" data-original="image-20231025234839268.png" alt="image-20231025234839268"></p>
+<p><img src="/images/Loading1.gif" data-original="image-20231025234839268.png" alt="image-20231025234839268"></p>
 <p>EnumEditor：</p>
-<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">using System.Collections;
+<pre><code class="language-c#">using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -345,19 +348,19 @@ public class EnumEditor : Editor
 
     private void OnEnable()
     &#123;
-        &#x2F;&#x2F;初始化
-        this.mObj &#x3D; new SerializedObject(target);
-        this.selectedEnum &#x3D; this.mObj.FindProperty(&quot;selectedEnum&quot;);
-        this.碰撞盒 &#x3D; this.mObj.FindProperty(&quot;碰撞盒&quot;);
-        this.特效 &#x3D; this.mObj.FindProperty(&quot;特效&quot;);
-        this.动作 &#x3D; this.mObj.FindProperty(&quot;动作&quot;);
+        //初始化
+        this.mObj = new SerializedObject(target);
+        this.selectedEnum = this.mObj.FindProperty(&quot;selectedEnum&quot;);
+        this.碰撞盒 = this.mObj.FindProperty(&quot;碰撞盒&quot;);
+        this.特效 = this.mObj.FindProperty(&quot;特效&quot;);
+        this.动作 = this.mObj.FindProperty(&quot;动作&quot;);
     &#125;
 
     public override void OnInspectorGUI()
     &#123;
         this.mObj.Update();
         EditorGUILayout.PropertyField(this.selectedEnum);
-        &#x2F;&#x2F;使用switch做条件筛选，this.mEnumDemo.enumValueIndex作为筛选条件，index从0开始，由于我设置枚举类型的第一个属性为None，所以case的值从1开始。
+        //使用switch做条件筛选，this.mEnumDemo.enumValueIndex作为筛选条件，index从0开始，由于我设置枚举类型的第一个属性为None，所以case的值从1开始。
         switch (this.selectedEnum.enumValueIndex)
         &#123;
             case 0:
@@ -374,38 +377,39 @@ public class EnumEditor : Editor
         this.mObj.ApplyModifiedProperties();
     &#125;
 &#125;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</code></pre>
 <p>编写后</p>
-<p><img src="/images/Emoji.gif" data-original="image-20231025235035035.png" alt="image-20231025235035035"></p>
+<p><img src="/images/Loading1.gif" data-original="image-20231025235035035.png" alt="image-20231025235035035"></p>
 <h2><span id="4-自定义操作界面"> 4、自定义操作界面</span></h2>
 <p>当我们需要自定义操作界面时：</p>
 <p>需要用到 EditorGUILayout 方法：<a target="_blank" rel="noopener" href="https://docs.unity.cn/cn/2019.4/ScriptReference/EditorGUILayout.html">EditorGUILayout - Unity 脚本 API</a></p>
 <p>以下是常用的。</p>
 <h3><span id="a-界面的启动和关闭"> a、界面的启动和关闭</span></h3>
 <p>创建一个类，存放在 Assets–&gt;Editor 里面，并继承自 EditorWindow</p>
-<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">using System.Collections;
+<pre><code class="language-c#">using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 public class WindowsEditor : EditorWindow
 &#123;
-    [MenuItem(&quot;Menu&#x2F;EditorWindow&quot;)]
-    &#x2F;&#x2F;声明窗口路径
+    [MenuItem(&quot;Menu/EditorWindow&quot;)]
+    //声明窗口路径
 
     public static void ShowWindow()
     &#123;
-        &#x2F;&#x2F;CreateInstance会允许创建多个窗口，推荐使用系统自带的单例模式getwindows
-        &#x2F;&#x2F;使用官方提供的实例化窗口方法调用
+        //CreateInstance会允许创建多个窗口，推荐使用系统自带的单例模式getwindows
+        //使用官方提供的实例化窗口方法调用
         WindowsEditor.CreateInstance&lt;WindowsEditor&gt;().Show();
 
-        &#x2F;&#x2F;浮动型的窗口，跟点击Building Setting出现的窗口效果一样
+        //浮动型的窗口，跟点击Building Setting出现的窗口效果一样
         WindowsEditor.CreateInstance&lt;WindowsEditor&gt;().ShowUtility();
 
-        &#x2F;&#x2F;弹出窗口时的效果
+        //弹出窗口时的效果
         WindowsEditor.CreateInstance&lt;WindowsEditor&gt;().ShowPopup();
-        &#x2F;&#x2F;此方法和下面的OnGUI配合着使用，否则会出现页面关不掉的情况,此时不会出现UI自带的关闭界面
+        //此方法和下面的OnGUI配合着使用，否则会出现页面关不掉的情况,此时不会出现UI自带的关闭界面
 
-        &#x2F;&#x2F;使用系统提供的单例模式，在unity面板中打开窗口时，只会出现一个(推荐)
+        //使用系统提供的单例模式，在unity面板中打开窗口时，只会出现一个(推荐)
         WindowsEditor.GetWindow&lt;WindowsEditor&gt;().Show();
     &#125;
 
@@ -418,14 +422,15 @@ public class WindowsEditor : EditorWindow
     &#125;
     
 &#125;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</code></pre>
 <p>每个方法效果如下</p>
 <table>
 <thead>
 <tr>
-<th><img src="/images/Emoji.gif" data-original="image-20231026000101143.png" alt="image-20231026000101143"></th>
-<th><img src="/images/Emoji.gif" data-original="image-20231026000129453.png" alt="image-20231026000129453"></th>
-<th><img src="/images/Emoji.gif" data-original="image-20231026000158455.png" alt="image-20231026000158455"></th>
+<th><img src="/images/Loading1.gif" data-original="image-20231026000101143.png" alt="image-20231026000101143"></th>
+<th><img src="/images/Loading1.gif" data-original="image-20231026000129453.png" alt="image-20231026000129453"></th>
+<th><img src="/images/Loading1.gif" data-original="image-20231026000158455.png" alt="image-20231026000158455"></th>
 </tr>
 </thead>
 <tbody>
@@ -438,178 +443,186 @@ public class WindowsEditor : EditorWindow
 </table>
 <h3><span id="b-界面的事件相关"> b、界面的事件相关</span></h3>
 <p>自定义页面中有时会使用自定义的事件，事件通常如下：</p>
-<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">public int index_1 &#x3D; 0;
-&#x2F;&#x2F;刷新方法，每秒钟100次
-public void Update()
-&#123;
-    index_1++;
-    Debug.Log(&quot;index_1：&quot; + index_1);
-&#125;
-
-public int index_2 &#x3D; 0;
-&#x2F;&#x2F;刷新方法，刷新周期比Update小
-public void OnInspectorUpdate()
-&#123;
-    index_2++;
-    Debug.Log(&quot;index_2：&quot; + index_2);
-&#125;
-
-&#x2F;&#x2F;视图被删除的时候触发
-public void OnDestroy()
-&#123;
-    Debug.Log(&quot;OnDestroy：触发&quot;);
-&#125;
-
-&#x2F;&#x2F;选择一个对象的时候触发
-public void OnSelectionChange()
-&#123;
-    &#x2F;&#x2F;获取选择Hierarchy里面游戏物体的时候的名字
-    for (int i &#x3D; 0; i &lt; Selection.gameObjects.Length; i++)
+<pre><code class="language-c#">    public int index_1 = 0;
+    //刷新方法，每秒钟100次
+    public void Update()
     &#123;
-        Debug.Log(&quot;OnSelectionChange：触发&quot; + Selection.gameObjects[i].name);
+        index_1++;
+        Debug.Log(&quot;index_1：&quot; + index_1);
     &#125;
 
-    &#x2F;&#x2F;获取选择Project里面的文件的名字
-    for (int i &#x3D; 0; i &lt; Selection.objects.Length; i++)
+    public int index_2 = 0;
+    //刷新方法，刷新周期比Update小
+    public void OnInspectorUpdate()
     &#123;
-        Debug.Log(&quot;OnSelectionChange：触发&quot; + Selection.objects[i].name);
+        index_2++;
+        Debug.Log(&quot;index_2：&quot; + index_2);
     &#125;
-&#125;
 
-&#x2F;&#x2F;获得焦点的时候触发
-public void OnFocus()
-&#123;
-    Debug.Log(&quot;OnFocus：触发&quot;);
-&#125;
+    //视图被删除的时候触发
+    public void OnDestroy()
+    &#123;
+        Debug.Log(&quot;OnDestroy：触发&quot;);
+    &#125;
 
-&#x2F;&#x2F;失去焦点的时候触发
-public void OnLostFocus()
-&#123;
-    Debug.Log(&quot;OnLostFocus：触发&quot;);
-&#125;
+    //选择一个对象的时候触发
+    public void OnSelectionChange()
+    &#123;
+        //获取选择Hierarchy里面游戏物体的时候的名字
+        for (int i = 0; i &lt; Selection.gameObjects.Length; i++)
+        &#123;
+            Debug.Log(&quot;OnSelectionChange：触发&quot; + Selection.gameObjects[i].name);
+        &#125;
 
-&#x2F;&#x2F;Hierarchy更改的时候触发
-public void OnHierarchyChange()
-&#123;
-    Debug.Log(&quot;OnHierarchyChange：触发&quot;);
-&#125;
+        //获取选择Project里面的文件的名字
+        for (int i = 0; i &lt; Selection.objects.Length; i++)
+        &#123;
+            Debug.Log(&quot;OnSelectionChange：触发&quot; + Selection.objects[i].name);
+        &#125;
+    &#125;
 
-&#x2F;&#x2F;Project更改的时候触发
-public void OnProjectChange()
-&#123;
-    Debug.Log(&quot;OnProjectChange：触发&quot;);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    //获得焦点的时候触发
+    public void OnFocus()
+    &#123;
+        Debug.Log(&quot;OnFocus：触发&quot;);
+    &#125;
+
+    //失去焦点的时候触发
+    public void OnLostFocus()
+    &#123;
+        Debug.Log(&quot;OnLostFocus：触发&quot;);
+    &#125;
+
+    //Hierarchy更改的时候触发
+    public void OnHierarchyChange()
+    &#123;
+        Debug.Log(&quot;OnHierarchyChange：触发&quot;);
+    &#125;
+
+    //Project更改的时候触发
+    public void OnProjectChange()
+    &#123;
+        Debug.Log(&quot;OnProjectChange：触发&quot;);
+    &#125;
+</code></pre>
 <h3><span id="c-文本-颜色字段"> c、文本 / 颜色字段</span></h3>
-<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">
-public string 文本 &#x3D; &quot;默认文字&quot;;
-public Color 颜色 &#x3D; Color.white;
-public void OnGUI()
-&#123;
-    if (GUILayout.Button(&quot;关闭&quot;))
+<pre><code class="language-c#">
+    public string 文本 = &quot;默认文字&quot;;
+    public Color 颜色 = Color.white;
+    public void OnGUI()
     &#123;
-        this.Close();
+        if (GUILayout.Button(&quot;关闭&quot;))
+        &#123;
+            this.Close();
+        &#125;
+        //一行文本，单行输入框
+        this.文本 = EditorGUILayout.TextField(this.文本);
+        //多行输入框
+        this.文本 = EditorGUILayout.TextArea(this.文本);
+        //密码输入框
+        this.文本 = EditorGUILayout.PasswordField(this.文本);
+        //颜色选择框
+        this.颜色 = EditorGUILayout.ColorField(this.颜色);
     &#125;
-    &#x2F;&#x2F;一行文本，单行输入框
-    this.文本 &#x3D; EditorGUILayout.TextField(this.文本);
-    &#x2F;&#x2F;多行输入框
-    this.文本 &#x3D; EditorGUILayout.TextArea(this.文本);
-    &#x2F;&#x2F;密码输入框
-    this.文本 &#x3D; EditorGUILayout.PasswordField(this.文本);
-    &#x2F;&#x2F;颜色选择框
-    this.颜色 &#x3D; EditorGUILayout.ColorField(this.颜色);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>效果如下：</p>
-<p><img src="/images/Emoji.gif" data-original="image-20231026001735821.png" alt="image-20231026001735821"></p>
+<p><img src="/images/Loading1.gif" data-original="image-20231026001735821.png" alt="image-20231026001735821"></p>
 <h3><span id="d-标签字段"> d、标签字段</span></h3>
 <p>类似于 [header (“”)] 标识，在 gui 中显示 tag。</p>
-<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">   public string 文本 &#x3D; &quot;默认文字&quot;;
-   public Color 颜色 &#x3D; Color.white;
-public void OnGUI()
-   &#123;
-       &#x2F;&#x2F;标签
-       EditorGUILayout.PrefixLabel(this.文本);&#x2F;&#x2F;只写这么一行代码，窗口里面不出现任何内容
-       EditorGUILayout.Space();&#x2F;&#x2F;换行
+<pre><code class="language-c#">    public string 文本 = &quot;默认文字&quot;;
+    public Color 颜色 = Color.white;
+	public void OnGUI()
+    &#123;
+        //标签
+        EditorGUILayout.PrefixLabel(this.文本);//只写这么一行代码，窗口里面不出现任何内容
+        EditorGUILayout.Space();//换行
 
-       &#x2F;&#x2F;标签（下拉框）
-       this.文本 &#x3D; EditorGUILayout.TagField(this.文本);
-       EditorGUILayout.Space();
+        //标签（下拉框）
+        this.文本 = EditorGUILayout.TagField(this.文本);
+        EditorGUILayout.Space();
 
-       &#x2F;&#x2F;标签（非可选择标签提示）
-       EditorGUILayout.LabelField(this.文本);
-       EditorGUILayout.Space();
+        //标签（非可选择标签提示）
+        EditorGUILayout.LabelField(this.文本);
+        EditorGUILayout.Space();
 
-       &#x2F;&#x2F;标签（可选择标签提示）
-       EditorGUILayout.SelectableLabel(this.文本);
-       EditorGUILayout.Space();
-   &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        //标签（可选择标签提示）
+        EditorGUILayout.SelectableLabel(this.文本);
+        EditorGUILayout.Space();
+    &#125;
+</code></pre>
 <p>效果如下：</p>
-<p><img src="/images/Emoji.gif" data-original="image-20231026002300584.png" alt="image-20231026002300584"></p>
+<p><img src="/images/Loading1.gif" data-original="image-20231026002300584.png" alt="image-20231026002300584"></p>
 <h3><span id="e-输入字段"> e、输入字段</span></h3>
-<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">public string 文本 &#x3D; &quot;默认文字&quot;;
- public int 数字;
+<pre><code class="language-c#">   public string 文本 = &quot;默认文字&quot;;
+    public int 数字;
 
- public void OnGUI()
- &#123;
-     EditorGUILayout.LabelField(&quot;输入整形数字&quot;);
-     this.数字 &#x3D; EditorGUILayout.IntField(this.数字);
-     EditorGUILayout.LabelField(&quot;输入字符&quot;);
-     this.文本 &#x3D; EditorGUILayout.TextField(this.文本);
- &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    public void OnGUI()
+    &#123;
+        EditorGUILayout.LabelField(&quot;输入整形数字&quot;);
+        this.数字 = EditorGUILayout.IntField(this.数字);
+        EditorGUILayout.LabelField(&quot;输入字符&quot;);
+        this.文本 = EditorGUILayout.TextField(this.文本);
+    &#125;
+</code></pre>
 <p>效果如下：</p>
-<p><img src="/images/Emoji.gif" data-original="image-20231026002601592.png" alt="image-20231026002601592"></p>
+<p><img src="/images/Loading1.gif" data-original="image-20231026002601592.png" alt="image-20231026002601592"></p>
 <h3><span id="f-滑动条"> f、滑动条</span></h3>
-<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">public int 数字;
-public float 浮点数;
-public float 浮点最大值;
-public float 浮点最小值;
-public void OnGUI()
-&#123;
-    &#x2F;&#x2F;滑动条  参数1：默认值，参数2：最小值，参数3：最大值
-    this.浮点数 &#x3D; EditorGUILayout.Slider(this.浮点数, 0, 100);&#x2F;&#x2F;取值区间有小数
+<pre><code class="language-c#">    public int 数字;
+    public float 浮点数;
+    public float 浮点最大值;
+    public float 浮点最小值;
+    public void OnGUI()
+    &#123;
+        //滑动条  参数1：默认值，参数2：最小值，参数3：最大值
+        this.浮点数 = EditorGUILayout.Slider(this.浮点数, 0, 100);//取值区间有小数
 
-    this.数字 &#x3D; EditorGUILayout.IntSlider(this.数字, 0, 100);&#x2F;&#x2F;取值区间为整数
+        this.数字 = EditorGUILayout.IntSlider(this.数字, 0, 100);//取值区间为整数
 
-    &#x2F;&#x2F;最小值到最大值的取值范围，为0-100
-    EditorGUILayout.MinMaxSlider(ref 浮点最小值, ref 浮点最大值, 0, 100);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        //最小值到最大值的取值范围，为0-100
+        EditorGUILayout.MinMaxSlider(ref 浮点最小值, ref 浮点最大值, 0, 100);
+    &#125;
+</code></pre>
 <p>效果如下：</p>
-<p><img src="/images/Emoji.gif" data-original="image-20231026003117435.png" alt="image-20231026003117435"></p>
+<p><img src="/images/Loading1.gif" data-original="image-20231026003117435.png" alt="image-20231026003117435"></p>
 <h3><span id="g-vector-输入字段"> g、Vector 输入字段</span></h3>
-<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">public Vector3 mPos3;
-public void OnGUI()
-&#123;
-    this.mPos3 &#x3D; EditorGUILayout.Vector3Field(&quot;三维坐标&quot;, this.mPos3);
-    EditorGUILayout.Space();
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="language-c#">    public Vector3 mPos3;
+    public void OnGUI()
+    &#123;
+        this.mPos3 = EditorGUILayout.Vector3Field(&quot;三维坐标&quot;, this.mPos3);
+        EditorGUILayout.Space();
+    &#125;
+</code></pre>
 <p>效果如下：</p>
-<p><img src="/images/Emoji.gif" data-original="image-20231026003443557.png" alt="image-20231026003443557"></p>
+<p><img src="/images/Loading1.gif" data-original="image-20231026003443557.png" alt="image-20231026003443557"></p>
 <h3><span id="h-选择"> h、选择</span></h3>
-<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">public int index;
+<pre><code class="language-c#">public int index;
 public void OnGUI()
     &#123;        
-    	string[] strs &#x3D; &#123; &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot; ,&quot;e&quot;&#125;;
-        int[] ints &#x3D; &#123; 1, 2, 3, 4, 5 &#125;;
-        this.index &#x3D; EditorGUILayout.Popup(this.index, strs);
-        this.index &#x3D; EditorGUILayout.IntPopup(this.index, strs,ints);
+    	string[] strs = &#123; &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot; ,&quot;e&quot;&#125;;
+        int[] ints = &#123; 1, 2, 3, 4, 5 &#125;;
+        this.index = EditorGUILayout.Popup(this.index, strs);
+        this.index = EditorGUILayout.IntPopup(this.index, strs,ints);
         EditorGUILayout.Space();
-    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="/images/Emoji.gif" data-original="image-20231026004155844.png" alt="image-20231026004155844"></p>
+    &#125;
+</code></pre>
+<p><img src="/images/Loading1.gif" data-original="image-20231026004155844.png" alt="image-20231026004155844"></p>
 <p>i、对象选择</p>
-<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#"> public string mTag;
- public int mLayer;
- public Object mObject;
- public void OnGUI()
- &#123;
-     &#x2F;&#x2F;标签，下面两种写法，哪个都可以
-     &#x2F;&#x2F;this.mTag &#x3D; EditorGUILayout.TagField(this.mTag);
-     this.mTag &#x3D; EditorGUILayout.TagField(&quot;Tag&quot;);
-     EditorGUILayout.Space();
-     &#x2F;&#x2F;层
-      this.mLayer &#x3D; EditorGUILayout.LayerField(this.mLayer);
-      EditorGUILayout.Space();
-      &#x2F;&#x2F;对象选择，如果想要存放所有的元素，那么参数就写为Object： typeof(Object)
-     this.mObject &#x3D; EditorGUILayout.ObjectField(&quot;对象选择器&quot;, this.mObject, typeof(Camera), true);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre><code class="language-c#">    public string mTag;
+    public int mLayer;
+    public Object mObject;
+    public void OnGUI()
+    &#123;
+        //标签，下面两种写法，哪个都可以
+        //this.mTag = EditorGUILayout.TagField(this.mTag);
+        this.mTag = EditorGUILayout.TagField(&quot;Tag&quot;);
+        EditorGUILayout.Space();
+        //层
+         this.mLayer = EditorGUILayout.LayerField(this.mLayer);
+         EditorGUILayout.Space();
+         //对象选择，如果想要存放所有的元素，那么参数就写为Object： typeof(Object)
+        this.mObject = EditorGUILayout.ObjectField(&quot;对象选择器&quot;, this.mObject, typeof(Camera), true);
+   &#125;
+</code></pre>
 <hr>
 <p>从其他博客中学到的，原作者：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/yzx885059439/p/14497026.html">Unity3D 插件开发教程 - 挽风入我怀 - 博客园 (cnblogs.com)</a></p>
 
