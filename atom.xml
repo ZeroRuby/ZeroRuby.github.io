@@ -131,6 +131,8 @@
         <content type="html">&lt;p&gt;一篇关于如何进行打击感和战斗手感优化的文章&lt;/p&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
 &lt;hr&gt;
+&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;hr&gt;
 &lt;h1&gt;&lt;span id=&#34;一-前言&#34;&gt; 一、前言&lt;/span&gt;&lt;/h1&gt;
 &lt;h2&gt;&lt;span id=&#34;1-为什么要优化打击感&#34;&gt; 1、为什么要优化打击感&lt;/span&gt;&lt;/h2&gt;
 &lt;p&gt;打击感对于任何一个拥有动作元素的游戏来说都是不可或缺的。通常来说，打击感优化会是动作游戏中一个较为核心的模块，也是一个难以做好的模块。&lt;/p&gt;
