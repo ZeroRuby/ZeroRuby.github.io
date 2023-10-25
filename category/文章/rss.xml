@@ -7,9 +7,9 @@
         <language>en</language>
         <pubDate>Thu, 19 Oct 2023 00:00:00 +0800</pubDate>
         <lastBuildDate>Thu, 19 Oct 2023 00:00:00 +0800</lastBuildDate>
+        <category>战斗</category>
         <category>程序</category>
         <category>unity</category>
-        <category>战斗</category>
         <category>关卡</category>
         <item>
             <guid isPermalink="true">https://zeroruby.github.io/2023/10/19/%E6%89%93%E5%87%BB%E6%84%9F%E4%BC%98%E5%8C%96%E8%AE%BE%E8%AE%A1/</guid>
@@ -29,11 +29,7 @@
 &lt;li&gt;&lt;a href=&#34;#3-%E4%BB%80%E4%B9%88%E6%98%AF%E4%BC%98%E7%A7%80%E7%9A%84%E6%88%98%E6%96%97%E6%89%8B%E6%84%9F&#34;&gt;3、什么是优秀的战斗手感&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#%E4%BA%8C-%E6%89%93%E5%87%BB%E6%84%9F%E5%92%8C%E6%89%8B%E6%84%9F%E7%9A%84%E5%BD%B1%E5%93%8D%E5%9B%A0%E7%B4%A0&#34;&gt;二、打击感和手感的影响因素&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#%E5%BD%B1%E5%93%8D%E5%9B%A0%E7%B4%A0%E5%BD%B1%E5%93%8D%E5%9B%A0%E7%B4%A0png&#34;&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;%E5%BD%B1%E5%93%8D%E5%9B%A0%E7%B4%A0.png&#34; alt=&#34;影响因素&#34;&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%BA%8C-%E6%89%93%E5%87%BB%E6%84%9F%E5%92%8C%E6%89%8B%E6%84%9F%E7%9A%84%E5%BD%B1%E5%93%8D%E5%9B%A0%E7%B4%A0&#34;&gt;二、打击感和手感的影响因素&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#%E4%B8%89-%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E6%89%93%E5%87%BB%E6%84%9F&#34;&gt;三、如何优化打击感&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#1-%E8%A7%86%E8%A7%89%E5%9B%A0%E7%B4%A0&#34;&gt;1、视觉因素&lt;/a&gt;
@@ -52,7 +48,7 @@
 &lt;li&gt;&lt;a href=&#34;#3-%E8%BE%93%E5%85%A5%E5%9B%A0%E7%B4%A0&#34;&gt;3、输入因素&lt;/a&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#1%E5%88%A4%E5%AE%9A&#34;&gt;（1）判定&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#h3-id%E5%8A%A8%E4%BD%9C%E5%8F%96%E6%B6%882%E5%8A%A8%E4%BD%9C%E5%8F%96%E6%B6%88h3&#34;&gt;&lt;h3&gt;&lt;span id=&#34;2动作取消&#34;&gt;（2）动作取消&lt;/span&gt;&lt;/h3&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#dic-id%E5%8A%A8%E4%BD%9C%E5%8F%96%E6%B6%882%E5%8A%A8%E4%BD%9C%E5%8F%96%E6%B6%88div&#34;&gt;&lt;dic id=&#34;动作取消&#34;&gt;（2）动作取消&lt;/dic&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#4-%E8%A7%A6%E8%A7%89%E5%9B%A0%E7%B4%A0&#34;&gt;4、触觉因素&lt;/a&gt;
@@ -86,7 +82,7 @@
 &lt;li&gt;动特音一体化&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1&gt;&lt;span id=&#34;二-打击感和手感的影响因素&#34;&gt; 二、打击感和手感的影响因素&lt;/span&gt;&lt;/h1&gt;
-&lt;h2&gt;&lt;span id&gt; &lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;%E5%BD%B1%E5%93%8D%E5%9B%A0%E7%B4%A0.png&#34; alt=&#34;影响因素&#34;&gt;&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;%E5%BD%B1%E5%93%8D%E5%9B%A0%E7%B4%A0.png&#34; alt=&#34;影响因素&#34;&gt;&lt;/p&gt;
 &lt;p&gt;通过人的感知对打击感区分了四个方向的影响因素&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;视觉：
@@ -146,7 +142,7 @@
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;需要有后摇缓冲&lt;/p&gt;
-&lt;p&gt;对于一个攻击动作而言，无论其是否能被取消（&lt;a href=&#34;#%E5%8A%A8%E4%BD%9C%E5%8F%96%E6%B6%88&#34;&gt;动作取消&lt;/a&gt;），都需要设计其攻击判定结束后的收招动作，是确保动作的连贯性和演出性质的重要因素。同时搭配动作取消，能成为影响操作手感的重要因素。&lt;/p&gt;
+&lt;p&gt;对于一个攻击动作而言，无论其是否能被取消（&lt;a href=&#34;#动作取消&#34;&gt;动作取消&lt;/a&gt;），都需要设计其攻击判定结束后的收招动作，是确保动作的连贯性和演出性质的重要因素。同时搭配动作取消，能成为影响操作手感的重要因素。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;%E5%8E%9F%E7%A5%9E%E6%94%B6%E5%89%91.gif&#34; alt=&#34;原神收剑&#34; title=&#34;原神迪卢克收剑动作&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -398,7 +394,7 @@
 &lt;p&gt;&lt;img src=&#34;/images/Emoji.gif&#34; data-original=&#34;image-20231019104122855.png&#34; alt=&#34;image-20231019104122855&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;&lt;span id=&#34;2动作取消&#34;&gt; &lt;h3 id=&#34;动作取消&#34;&gt;（2）动作取消&lt;/h3&gt;&lt;/span&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;span id=&#34;2动作取消&#34;&gt; &lt;dic id=&#34;动作取消&#34;&gt;（2）动作取消&lt;/dic&gt;&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;动作取消在动作游戏中是一个很重要的因素&lt;/p&gt;
 &lt;p&gt;首先，减少了收尾，两个技能的连接可以使得动作更加的顺滑，其次，减少了破绽，因为在起手和收尾阶段往往更容易受到攻击和打断，而攻击时往往处于难以打断状态。再者，某一个动作可能有更多的后续动作，拓宽了动作选择，达到出其不意的效果，让战局更加的变幻莫测。&lt;/p&gt;
 &lt;p&gt;并且在不同类型的游戏中取消会有不同的设定：&lt;/p&gt;
