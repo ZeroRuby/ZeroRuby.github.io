@@ -7,10 +7,10 @@
         <language>en</language>
         <pubDate>Wed, 25 Oct 2023 00:00:00 +0800</pubDate>
         <lastBuildDate>Wed, 25 Oct 2023 00:00:00 +0800</lastBuildDate>
+        <category>关卡</category>
         <category>程序</category>
         <category>unity</category>
         <category>战斗</category>
-        <category>关卡</category>
         <item>
             <guid isPermalink="true">https://zeroruby.github.io/2023/10/25/Unity%E6%8F%92%E4%BB%B6%E5%88%B6%E4%BD%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
             <title>Unity插件制作学习笔记</title>
@@ -76,6 +76,9 @@ public class ValueTest
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;最终在 inspector 的表现效果如下：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;image-20231025225218480.png&#34; alt=&#34;image-20231025225218480&#34;&gt;&lt;/p&gt;
+&lt;p&gt;这里涉及到 unity 中 inspector 的数据持久化问题，即序列化，参考文档：&lt;a href=&#34;https://docs.unity.cn/cn/2020.3/Manual/script-Serialization.html&#34;&gt;脚本序列化 - Unity 手册&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;“序列化是将数据结构或对象状态转换为 Unity 可存储并在以后可重构的格式的自动过程。”&lt;/p&gt;
+&lt;p&gt;如果在自定义 inspector 的脚本中，没有使用派生子 editor 基类的方法 FindProperty () 来获取 target 中的变量时，是无法被序列化保存的，需要注意。&lt;/p&gt;
 &lt;h2&gt;&lt;span id=&#34;2-自定义界面属性&#34;&gt; 2、自定义界面属性&lt;/span&gt;&lt;/h2&gt;
 &lt;p&gt;创建自定义界面需要在 Asset 路径下创建名为 Editor 的文件夹，此命名的文件夹打包时不会被打包（Resources 文件夹同理，在 load 方法加载资源时要注意路径&lt;a href=&#34;https://docs.unity.cn/cn/2019.3/ScriptReference/Resources.Load.html&#34;&gt;（Resources-Load - Unity 脚本 API）&lt;/a&gt;）&lt;/p&gt;
 &lt;p&gt;创建上述 Value 的自定义 inspector：&lt;/p&gt;
@@ -133,7 +136,7 @@ public class ValueEditor :Editor
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;效果如图&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/images/Loading1.gif&#34; data-original=&#34;image-20231025232755437.png&#34; alt=&#34;image-20231025232755437&#34;&gt;&lt;/p&gt;
-&lt;p&gt;可以看到自定义的 Editor 界面不受类本身的属性表示控制。&lt;/p&gt;
+&lt;p&gt;可以看到自定义的 Editor 界面不受类本身的属性标识控制。&lt;/p&gt;
 &lt;h2&gt;&lt;span id=&#34;3-自定义序列化属性字段&#34;&gt; 3、自定义序列化属性字段&lt;/span&gt;&lt;/h2&gt;
 &lt;p&gt;此时，我想要当前属性随着我的枚举值的变化而变化，即我选择一个枚举时，其他属性处于不被 editor 绘制的状态。&lt;/p&gt;
 &lt;p&gt;方法：&lt;/p&gt;
@@ -187,7 +190,6 @@ public class EnumEditor : Editor
     &amp;#123;
         this.mObj.Update();
         EditorGUILayout.PropertyField(this.selectedEnum);
-        //使用switch做条件筛选，this.mEnumDemo.enumValueIndex作为筛选条件，index从0开始，由于我设置枚举类型的第一个属性为None，所以case的值从1开始。
         switch (this.selectedEnum.enumValueIndex)
         &amp;#123;
             case 0:
@@ -451,7 +453,9 @@ public void OnGUI()
    &amp;#125;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;hr&gt;
-&lt;p&gt;从其他博客中学到的，原作者：&lt;a href=&#34;https://www.cnblogs.com/yzx885059439/p/14497026.html&#34;&gt;Unity3D 插件开发教程 - 挽风入我怀 - 博客园 (cnblogs.com)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;参考文章：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/yzx885059439/p/14497026.html&#34;&gt;Unity3D 插件开发教程 - 挽风入我怀 - 博客园 (cnblogs.com)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/fancybit/p/InspectorPersistantProblem.html&#34;&gt;Unity 自定义 Inspector 面板时的数据持久化问题 - FancyBit - 博客园 (cnblogs.com)&lt;/a&gt;&lt;/p&gt;
  ]]></description>
         </item>
         <item>
