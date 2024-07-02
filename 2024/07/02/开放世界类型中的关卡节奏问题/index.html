@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>开放世界类型中的关卡节奏问题 | 红玉のblog</title>
+    <meta name="author" content="红玉" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/Loading1.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>红玉のBLOG</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;主页</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;档案</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;分类</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;文章</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;标签</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;红玉のBLOG</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">主页</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">档案</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">分类</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">文章</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">标签</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>开放世界类型中的关卡节奏问题</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/7/2
+        </span>
+        
+        <span class="category">
+            <a href="/categories/%E6%96%87%E7%AB%A0/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                文章
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/%E5%85%B3%E5%8D%A1/" style="color: #ff7d73">关卡</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p>一篇关于分析关卡节奏是什么、怎么用，并通过对部分开放世界游戏进行案例分析进行论证的文章。</p>
+<span id="more"></span>
+<hr>
+<!-- toc -->
+<ul>
+<li><a href="#%E4%B8%80-%E5%89%8D%E8%A8%80">一、前言</a>
+<ul>
+<li><a href="#1-%E5%85%B3%E5%8D%A1%E8%8A%82%E5%A5%8F%E6%98%AF%E4%BB%80%E4%B9%88">1、关卡节奏是什么</a></li>
+<li><a href="#2-%E8%8A%82%E5%A5%8F%E4%B8%8E%E7%8E%A9%E5%AE%B6%E6%BF%80%E5%8A%B1">2、节奏与玩家激励</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C-%E5%A6%82%E4%BD%95%E8%A1%A1%E9%87%8F%E8%8A%82%E5%A5%8F">二、如何衡量节奏</a>
+<ul>
+<li><a href="#1-%E6%B5%81%E7%A8%8B%E4%B8%AD%E7%9A%84%E6%9C%80%E5%B0%8F%E5%8D%95%E5%85%83">1、流程中的最小单元</a></li>
+<li><a href="#2-%E8%A1%A1%E9%87%8F%E8%8A%82%E5%A5%8F">2、衡量节奏</a></li>
+<li><a href="#3-%E5%9F%BA%E4%BA%8E%E9%A1%B9%E7%9B%AE%E8%A1%A1%E9%87%8F%E8%8A%82%E5%A5%8F">3、基于项目衡量节奏</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89-%E5%85%B3%E5%8D%A1%E8%8A%82%E5%A5%8F%E5%88%86%E6%9E%90">三、关卡节奏分析</a>
+<ul>
+<li><a href="#1-%E6%B8%B8%E6%88%8F%E7%B1%BB%E5%9E%8B%E5%88%86%E6%9E%90">1、游戏类型分析</a></li>
+<li><a href="#2-%E8%9C%98%E8%9B%9B%E4%BE%A02%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90">2、《蜘蛛侠 2》流程分析</a>
+<ul>
+<li><a href="#1%E5%85%B3%E5%8D%A1%E7%BB%84%E4%BB%B6%E5%88%86%E6%9E%90">（1）关卡组件分析</a></li>
+<li><a href="#2%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90">（2）流程分析</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<hr>
+<h1><span id="一-前言"> 一、前言</span></h1>
+<h2><span id="1-关卡节奏是什么"> 1、关卡节奏是什么</span></h2>
+<p>在 2014 年的 GDC 上，曾经有一位来自 V 社的游戏设计师对这方面的内容进行过分享。</p>
+<p>总体上来看，节奏描述的是活动、活动强度和活动持续时间的关系。</p>
+<p>在游戏设计上，可以定性的说，节奏是一种用来维持玩家对游戏兴趣的一种工具，可以想玩家传达情感，也能帮助控制事件对玩家的影响。</p>
+<h2><span id="2-节奏与玩家激励"> 2、节奏与玩家激励</span></h2>
+<p>为了吸引玩家持续且沉浸的进行游戏，需要通过一些奖励或事件来推动玩家继续前进，如：物品、故事要素、战斗、宝箱等等。</p>
+<h1><span id="二-如何衡量节奏"> 二、如何衡量节奏</span></h1>
+<p>通常为了更好的优化游戏体验，正确的确定游戏流程中的节奏能为游戏设计带来更多的便利。</p>
+<p>通常我们希望能以图表的形式对节奏进行可视化的测量，其横轴可以使用时间、事件等作为单位，然而其纵轴作为强度（intensity）却是一个十分抽象的概念。</p>
+<p>那么如何衡量节奏的强度呢？</p>
+<h2><span id="1-流程中的最小单元"> 1、流程中的最小单元</span></h2>
+<p>首先我们需要寻找节奏的最小单元，我们需要引入传统电影中的叙事结构的分析中最小的单元：“节拍”，分析如下：</p>
+<p>在传统动画和影视行业中，以一部电影为例，电影中的剧情会有一些关键的事件推动剧情的发展，称之为<em><strong>激励事件</strong></em>，这些事件是在通过 “幕” 来进行分割的，以常规电影的 “三幕式” 结构进行划分，不同的事件安插在不同的幕间（例如：中点事件在第二幕，作为进展纠纷、提升节奏的重要事件，通常一部电影的优劣也可以通过后续事件的情绪高潮是否高过中点事件来判断电影的结构完整性）。这些事件正是由一个个的 “节拍” 组成。在传统电影叙事中，一个节拍是动作 \ 反应中的一种行为交流，而在游戏设计上，<em><strong>节拍认为是玩家交互的一次行为</strong></em>。</p>
+<p>一个个节拍构成了一个场景，诸多场景组成一个流程。如果一个流程中节拍出现的太过频繁，玩家会应接不暇，反之也会感到无聊。</p>
+<h2><span id="2-衡量节奏"> 2、衡量节奏</span></h2>
+<p>在找到流程设计中的最小单元之后，我们的节奏量表的纵轴就可以确定了，那就是我们的节拍数（通过上述论述可以确定，一个节拍认为是一次交互）。</p>
+<p>通过对不同游戏中的玩法、战斗、探索、奖励拆分成量化的节拍数，即可对关卡的节奏强度进行衡量。</p>
+<p>举个例子：衡量战斗的节拍数就是寻找战斗的最小周期，如射击游戏中，最小周期是一次弹夹的更换。在 ARPG 中，可以是一次连段、一次闪避等等（即进行交互后回到初始状态视为一次周期）。那么在流程中存在需要多少个节拍才能解决的战斗，就认为这个流程的战斗强度为多少。</p>
+<p>可以发现这是一种较为通用的衡量节奏的方法。</p>
+<h2><span id="3-基于项目衡量节奏"> 3、基于项目衡量节奏</span></h2>
+<p>通过上述方式我们找到了一个能较为通用的衡量关卡节奏的方法，但未免有些复杂，在实际的项目开发中，需要有一个通用的讨论节奏的方法，使其不需要繁琐的换算来衡量节奏。</p>
+<p>例如在 V 社游戏半条命 2 中，开发团队有一种针对项目的来讨论节奏的方法，通过运用这种方法能将整个游戏概括成几个基本的组成部分：战斗、谜题、探索、编排和街景。在完成拆分后对每个组成部分进行下定义。</p>
+<ul>
+<li>战斗（Combat）：描述一个玩家参与到一场战斗当中的任何时间</li>
+<li>探索（Explore）：用于说明玩家走遍游戏环境、而不主动参与谜题解决和战斗的部分</li>
+<li>谜题（Puzzle）：玩家必须克服的挑战。在解决之前无法前进</li>
+<li>编排（choreography）：动画场景，如：镜头调度、动画演出等部分。</li>
+<li>街景：吸引玩家视觉兴趣的区域</li>
+</ul>
+<p>因此基于上述的分析，在 14 年的 GDC 上，开发者对《半条命 2》中第二章的关卡进行了分析</p>
+<p><img src="/images/Loading1.gif" data-original="/image-20240702103328593-17198876114711.png" alt="image-20240702103328593"></p>
+<p>开发者对这张图进行边缘化，即可得到关卡的节奏曲线：</p>
+<p><img src="/images/Loading1.gif" data-original="/image-20240702103408621-17198876505782.png" alt="image-20240702103408621"></p>
+<p>再对关卡进行分析，添加事件之间的过渡，得到如下：</p>
+<p><img src="/images/Loading1.gif" data-original="/image-20240702103441001.png" alt="image-20240702103441001"></p>
+<p>因此，在实际项目开发中，对于一些较为通用和常规的关卡，我们可以使用这种方法快速确定关卡的节奏曲线。</p>
+<h1><span id="三-关卡节奏分析"> 三、关卡节奏分析</span></h1>
+<p>在完成上述的关卡节奏的探索后，我们来探索开放世界游戏中的一些关于关卡节奏方面的问题。</p>
+<h2><span id="1-游戏类型分析"> 1、游戏类型分析</span></h2>
+<p>开放世界游戏不同的项目设计方式也大相径庭。因此从关卡体验和流程的角度上，我们拆分成一下几类。</p>
+<ul>
+<li>以 POI 为主要引导的：如老头环、野炊和王泪等属于这一类，这一类开放世界游戏极大程度的削弱的引导，所以在关卡节奏的衡量上也相对更加困难。</li>
+<li>以任务、战斗为引导的：如原神、蜘蛛侠 2 等属于这一类，这一类开放世界在流程设计上仍然类似于传统箱庭关卡，在节奏的衡量方面相对更加容易</li>
+</ul>
+<h2><span id="2-蜘蛛侠-2流程分析"> 2、《蜘蛛侠 2》流程分析</span></h2>
+<h3><span id="1关卡组件分析"> （1）关卡组件分析</span></h3>
+<p>分析关卡之前需要确定该游戏中的流程有哪些组件</p>
+<ul>
+<li>
+<p>CG 动画：CG 动画的节奏和叙事有关，通常不在流程中</p>
+</li>
+<li>
+<p>战斗：蜘蛛侠的战斗包含了格斗、跑酷的内容。一个基础小怪可以用一套连招击杀，视为一个周期，那么可以认为含有一个小怪的战斗其节奏为 1，精英怪为 3，一个战斗场景的节奏为玩家同时面对的敌人的数量（OB 的怪物不算在内）</p>
+</li>
+<li>
+<p>过场动画：用于衔接幕间的时长较短的动画，通常为实际动画，视为单个单元，节奏放缓，为 1</p>
+</li>
+<li>
+<p>解密：在关卡流程中完成特定玩法进入下一个流程，根据谜题难度而定，简单谜题定为 2</p>
+</li>
+<li>
+<p>探索：即不战斗也不解密的过程。由于蜘蛛侠系列存在跑酷玩法，故探索过程中的节奏相对其他类型的游戏较高，其单位时间内完成的周期性动作是固定的，可以视为探索过程中，节奏为 3</p>
+<p>(除战斗以外的其他部分的节奏衡量无需过于精准，因为确定了波峰和波谷之后，其他的误差不会对结果有太大影响。一些特殊的战斗，如追逐战需要特别对待)</p>
+</li>
+</ul>
+<h3><span id="2流程分析"> （2）流程分析</span></h3>
+<p>对游戏的新手关卡进行分析</p>
+<hr>
+<p>过几天更新</p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2024 红玉のblog
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;红玉
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+
+        
+
+        <span id="busuanzi_container_site_uv">
+            您是第<span id="busuanzi_value_site_pv"></span>个小伙伴
+        </span>
+
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</html>

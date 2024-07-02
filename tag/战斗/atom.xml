@@ -6,8 +6,8 @@
     <updated>2023-10-18T16:00:00.000Z</updated>
     <category term="程序" />
     <category term="unity" />
-    <category term="战斗" />
     <category term="关卡" />
+    <category term="战斗" />
     <entry>
         <id>https://zeroruby.github.io/2023/10/19/%E6%89%93%E5%87%BB%E6%84%9F%E4%BC%98%E5%8C%96%E8%AE%BE%E8%AE%A1/</id>
         <title>打击感和战斗手感优化设计</title>
@@ -415,7 +415,7 @@
 &lt;h3&gt;&lt;span id=&#34;2力反馈扳机&#34;&gt; （2）力反馈扳机&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;在 dualsecse 控制器中新增的力反馈扳机搭配 ps5 平台的专门主机优化，在一系列射击游戏中能获得更优秀的感官体验。&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;暂时就会这么多，想到了再更新&lt;/p&gt;
+&lt;p&gt;暂时就会这么多，想到了再更新。欢迎各位大佬对文章有任何问题可以通过主页的联系方式联系我进行探讨。&lt;/p&gt;
 </content>
         <category term="战斗" />
         <updated>2023-10-18T16:00:00.000Z</updated>
